@@ -54,23 +54,34 @@ public class Main {
         sourCream.add("no sour cream");
 
         System.out.println();
+        String choice1,choice2,choice3,choice4,choice5,choice6,choice7,choice8,choice9;
         for (int i = 1; i <26 ; i++) {
-            String choice1 = getChoice(rice);
-            String choice2 = getChoice(meat);
-            String choice3 = getChoice(beans);
-            String choice4 = getChoice(salsa);
+            choice1 = getChoice(rice);
+            choice2 = getChoice(meat);
+            choice3 = getChoice(beans);
+            choice4 = getChoice(salsa);
 
-            String choice5 = getChoice(veggies);
-            if(choice5.equals("no veggies, ")){
+            choice5 = getChoice(veggies);
+            if(choice5.equals("no veggies")){
                 choice5 = "";
+            } else{
+                choice5 += ", ";
             }
 
-            String choice6 = getChoice(cheese);
-            String choice7 = getChoice(guacamole);
-            String choice8 = getChoice(queso);
-            String choice9 = getChoice(sourCream);
+            choice6 = getChoice(cheese);
+            choice7 = getChoice(guacamole);
+            choice8 = getChoice(queso);
+            choice9 = getChoice(sourCream);
 
-            System.out.println("Burrito " +i +": " +choice1+choice2+choice3+choice4+choice5+choice6+choice7+choice8+choice9);
+            System.out.println("Burrito " +i +": " +choice1+", "+
+                    choice2+ ", "+
+                    choice3+ ", "+
+                    choice4+ ", "+
+                    choice5+
+                    choice6+ ", "+
+                    choice7+ ", "+
+                    choice8+ ", "+
+                    choice9);
         }
     }
 
@@ -78,13 +89,16 @@ public class Main {
         int random = (int)(Math.random() * options.size());
         String choice = options.get(random);
         if(choice.equals("all")){
-            String all ="";
-            for (int i = 0; i < options.indexOf("all") ; i++) {
-                all += options.get(i) + ", ";
+            String choices = "";
+            int index = options.indexOf("all");
+            //add all choice
+            for (int i = 0; i < index ; i++) {
+                choices += options.get(i) + ", ";
+                if(i == (index -1)){
+                    choices += options.get(i);
+                }
             }
-            choice = all;
-        } else{
-            choice += ", ";
+            choice = choices;
         }
         return choice;
     }

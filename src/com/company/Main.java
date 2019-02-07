@@ -6,6 +6,7 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
+
         List<String> rice = new ArrayList<>();
         rice.add("white rice");
         rice.add("brown rice");
@@ -53,35 +54,57 @@ public class Main {
         sourCream.add("sour cream");
         sourCream.add("no sour cream");
 
-        System.out.println();
         String choice1,choice2,choice3,choice4,choice5,choice6,choice7,choice8,choice9;
+
         for (int i = 1; i <26 ; i++) {
             choice1 = getChoice(rice);
             choice2 = getChoice(meat);
             choice3 = getChoice(beans);
             choice4 = getChoice(salsa);
-
             choice5 = getChoice(veggies);
-            if(choice5.equals("no veggies")){
-                choice5 = "";
-            } else{
-                choice5 += ", ";
-            }
-
             choice6 = getChoice(cheese);
             choice7 = getChoice(guacamole);
             choice8 = getChoice(queso);
             choice9 = getChoice(sourCream);
 
+            double money = 3.0;
+            if(!choice1.equals("no rice")) {
+                money += 0.5;
+            }
+            if(!choice2.equals("")){
+                money += 0.5;
+            }
+            if (!choice3.equals("no beans")){
+                money +=0.5;
+            }
+            if(!choice4.equals("no salsa")){
+                money +=0.5;
+            }
+            if(!choice5.equals("")){
+                money +=0.5;
+            }
+            if(!choice6.equals("")){
+                money +=0.5;
+            }
+            if(!choice7.equals("")){
+                money +=0.5;
+            }
+            if(!choice8.equals("")){
+                money +=0.5;
+            }
+            if(!choice9.equals("")){
+                money += 0.5;
+            }
+
             System.out.println("Burrito " +i +": " +choice1+", "+
                     choice2+ ", "+
                     choice3+ ", "+
                     choice4+ ", "+
-                    choice5+
+                    choice5+ ", "+
                     choice6+ ", "+
                     choice7+ ", "+
                     choice8+ ", "+
-                    choice9);
+                    choice9+ ", price = " + money);
         }
     }
 
@@ -92,21 +115,15 @@ public class Main {
             String choices = "";
             int index = options.indexOf("all");
             //add all choice
-            for (int i = 0; i < index ; i++) {
-                choices += options.get(i) + ", ";
-                if(i == (index -1)){
-                    choices += options.get(i);
-                }
+            for(int i = 0; i < index - 1 ; i++){
+                choices += options.get(i) + ", ";;
             }
+            choices += options.get(index - 1 );
             choice = choices;
+        } else if(choice.equals("no veggies")||choice.equals("no cheese")|| choice.equals("no guacamole") || choice.equals("no queso")||choice.equals("no sour cream")){
+                choice = "";
         }
         return choice;
     }
-//    public static String getChoices(){
-//
-//    }
 
-//    public static List<String> getRandom(){
-//
-//    }
 }

@@ -1,6 +1,7 @@
 package com.company;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Main {
@@ -19,43 +20,15 @@ public class Main {
         List<String> queso = new ArrayList<>();
         List<String> sourCream = new ArrayList<>();
 
-        rice.add("white rice");
-        rice.add("brown rice");
-        rice.add("no rice");
-
-        meat.add("chicken");
-        meat.add("steak");
-        meat.add("carnidas");
-        meat.add("chorizo");
-        meat.add("sofritas");
-        meat.add("veggies");
-
-        beans.add("pinto beans");
-        beans.add("black beans");
-        beans.add("no beans");
-
-        salsa.add("mild salsa");
-        salsa.add("medium salsa");
-        salsa.add("hot salsa");
-        salsa.add("all");
-        salsa.add("no salsa");
-
-        veggies.add("lettuce");
-        veggies.add("fajita veggies");
-        veggies.add("all");
-        veggies.add("no veggies");
-
-        cheese.add("chesse");
-        cheese.add("no cheese");
-
-        guacamole.add("guacamole");
-        guacamole.add("no guacamole");
-
-        queso.add("queso");
-        queso.add("no queso");
-
-        sourCream.add("sour cream");
-        sourCream.add("no sour cream");
+        Collections.addAll(rice,"white rice","brown rice","no rice");
+        Collections.addAll(meat,"chicken","steak","carnidas","chorizo","sofritas","veggies");
+        Collections.addAll(beans, "pinto beans","black beans","no beans");
+        Collections.addAll(salsa,"mild salsa","medium salsa","hot salsa","all","no salsa");
+        Collections.addAll(veggies, "lettuce","fajita veggies","all","no veggies");
+        Collections.addAll(cheese,"cheese","no cheese");
+        Collections.addAll(guacamole,"guacamole","no guacamole");
+        Collections.addAll(queso,"queso","no queso");
+        Collections.addAll(sourCream,"sour cream","no sour cream");
 
         for (int i = 1; i <26 ; i++) {
             main.setMoney(3);
@@ -93,6 +66,7 @@ public class Main {
     public String getChoice(List<String> options){
         int random = (int)(Math.random() * options.size());
         String choice = options.get(random);
+
         if(choice.equals("all")){
             String choices = "";
             int index = options.indexOf("all");
@@ -100,19 +74,15 @@ public class Main {
             //add all choices
             for(int i = 0; i < index - 1 ; i++){
                 choices += options.get(i) + ", ";
-            }
-            choices += options.get(index - 1 );
-            choice = choices;
-            //System.out.println(index +" "+choice);
-            for (int i = 0; i < index; i++) {
                 addMoney(0.5);
             }
-
+            choices += options.get(index - 1 );
+            addMoney(0.5);
+            choice = choices;
         } else if(choice.equals("no veggies")||choice.equals("no cheese")|| choice.equals("no guacamole") || choice.equals("no queso")||choice.equals("no sour cream")){
             choice = "";
         } else if (choice.equals("no rice") || choice.equals("no beans")||choice.equals("no salsa")) {
             //do nothing
-            choice = choice;
         } else {
             addMoney(0.5);
         }

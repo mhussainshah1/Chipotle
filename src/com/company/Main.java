@@ -38,23 +38,23 @@ public class Main {
         veggies.add("all");
         veggies.add("no veggies");
 
-        List<String> cheese = new ArrayList<>();// yes/no
+        List<String> cheese = new ArrayList<>();
         cheese.add("chesse");
         cheese.add("no cheese");
 
-        List<String> guacamole = new ArrayList<>();//yes/no
+        List<String> guacamole = new ArrayList<>();
         guacamole.add("guacamole");
         guacamole.add("no guacamole");
 
-        List<String> queso = new ArrayList<>();// yes/no
+        List<String> queso = new ArrayList<>();
         queso.add("queso");
         queso.add("no queso");
 
-        List<String> sourCream = new ArrayList<>();//: yes/no
+        List<String> sourCream = new ArrayList<>();
         sourCream.add("sour cream");
         sourCream.add("no sour cream");
 
-        String choice1,choice2,choice3,choice4,choice5,choice6,choice7,choice8,choice9;
+        String choice1,choice2,choice3,choice4,choice5,choice6,choice7,choice8,choice9 ,outPut="";
 
         for (int i = 1; i <26 ; i++) {
             choice1 = getChoice(rice);
@@ -82,29 +82,27 @@ public class Main {
             }
             if(!choice5.equals("")){
                 money +=0.5;
+                outPut = choice5+", ";
             }
             if(!choice6.equals("")){
                 money +=0.5;
+                outPut += choice6 + ", ";
             }
             if(!choice7.equals("")){
                 money +=0.5;
+                outPut += choice7 + ", ";
             }
             if(!choice8.equals("")){
                 money +=0.5;
+                outPut += choice8 + ", ";
             }
             if(!choice9.equals("")){
                 money += 0.5;
+                outPut += choice9 + ", ";
             }
 
-            System.out.println("Burrito " +i +": " +choice1+", "+
-                    choice2+ ", "+
-                    choice3+ ", "+
-                    choice4+ ", "+
-                    choice5+ ", "+
-                    choice6+ ", "+
-                    choice7+ ", "+
-                    choice8+ ", "+
-                    choice9+ ", price = " + money);
+            System.out.println("Burrito " +i +": " +choice1+", "+ choice2+ ", "+
+                    choice3+ ", "+choice4+ ", "+ outPut + "price = $" + money);
         }
     }
 
